@@ -53,7 +53,7 @@
           onload={handleMainImageLoad}
         />
         
-        <div 
+        <!-- <div 
           class="absolute bottom-8 left-8 text-white"
           in:fade={{ duration: TRANSITION_DURATION, delay: TRANSITION_DURATION / 2 }}>
           <h1 
@@ -62,7 +62,7 @@
             {slides[currentIndex].season}<br />
             {slides[currentIndex].year}
           </h1>
-        </div>
+        </div> -->
       </div>
     {/key}
   </div>
@@ -70,7 +70,7 @@
 <!-- Right column - Thumbnails -->
 <div class="bg-[#FAF9F7] h-screen relative grid grid-rows-[auto_1fr_auto] px-12 py-16">
   <!-- Верхнее изображение -->
-  <div class="place-self-start self-start w-[320px] mt-[200px] ml-[220px]">
+  <div class="place-self-start self-start w-[320px] mt-[160px] ml-[220px]">
     <!-- Placeholder/Skeleton -->
     <div 
       class="inset-0 bg-gray-200 animate-pulse"
@@ -88,7 +88,7 @@
   </div>
 
   <!-- Нижнее изображение -->
-  <div class="place-self-start self-end w-[260px] ml-[30px]">
+  <div class="place-self-start self-end w-[260px] mb-[70px] ml-[30px]">
     <!-- Placeholder/Skeleton -->
     <div 
       class="inset-0 bg-gray-200 animate-pulse"

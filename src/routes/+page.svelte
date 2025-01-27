@@ -1,11 +1,9 @@
-<!-- src/routes/+page.svelte -->
 <script lang="ts">
-  import { CollectionSlider, Header, Navigation } from '$lib/index.js';
+  import { CollectionSlider, Footer, Header} from '$lib/index.js';
   import { collections } from '$lib/types/collection.js';
 
-  
   let currentIndex = 0;
-  
+
   function handleLanguageChange(newLanguage: 'ENG' | 'FR') {
     console.log(`Language changed to ${newLanguage}`);
   }
@@ -15,17 +13,19 @@
   }
 </script>
 
-<main class="relative">
-
+<div class="flex flex-col min-h-screen">
+  <!-- Header -->
   <Header 
-  initialLanguage="ENG"
-  onLanguageChange={handleLanguageChange}
-  onMenuClick={handleMenuOpen}
-/>
-  
-  <CollectionSlider
-    slides={collections}
-    {currentIndex}
+    initialLanguage="ENG"
+    onLanguageChange={handleLanguageChange}
+    onMenuClick={handleMenuOpen}
   />
-  
-</main>
+
+  <!-- Main content -->
+  <main class="flex-grow">
+    <CollectionSlider slides={collections} {currentIndex} />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+</div>
