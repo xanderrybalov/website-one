@@ -1,2 +1,3 @@
-# website-one
-Website #1
+# Website #1
+
+![Navigation Hover](static/preview.jpg)
