@@ -1,34 +1,54 @@
+<!-- src/lib/components/Header.svelte -->
 <script lang="ts">
-    function handleMenuClick() {}
-    </script>
-    
-    <div class="fixed top-0 left-0 w-full p-4 flex justify-between items-center z-10">
+let currentLanguage = $state('ENG');
+
+let {
+    initialLanguage = 'ENG', onLanguageChange = () => {}, onMenuClick = () => {}
+} = $props < {
+    initialLanguage ? : 'ENG' | 'FR';
+    onLanguageChange ? : (lang: 'ENG' | 'FR') => void;
+    onMenuClick ? : () => void;
+} > ();
+
+currentLanguage = initialLanguage;
+
+function switchLanguage(lang: 'ENG' | 'FR') {
+    currentLanguage = lang;
+    onLanguageChange(lang);
+}
+</script>
+
+<div class="fixed top-0 left-0 w-full p-header-padding flex justify-between items-center z-10">
+    <button
+        class="text-text-white flex items-center gap-2"
+        onclick={onMenuClick}
+        aria-label="Open menu"
+    >
+        <img 
+            src="/menu.svg" 
+            alt=""
+            class="w-6 h-6 filter invert"
+            aria-hidden="true"
+        />
+        <span class="pl-menu-text-padding">Menu</span>
+    </button>
+
+    <div class="flex gap-4">
         <button
-            class="text-white hover:text-primary-green transition-colors flex items-center gap-2"
-            on:click={handleMenuClick}
-            aria-label="Open menu"
+class="transition-colors font-bold {currentLanguage === 'ENG' ? 'text-text-black' : 'text-secondary'}"
+            onclick={() => switchLanguage('ENG')}
+            aria-label="Switch to English"
+            aria-pressed={currentLanguage === 'ENG'}
         >
-            <img 
-                src="/menu.svg" 
-                alt=""
-                class="w-6 h-6 filter invert"
-                aria-hidden="true"
-            />
-            <span>Menu</span>
+            ENG
         </button>
-    
-        <div class="flex gap-4">
-            <button
-                class="text-black hover:text-primary-green transition-colors"
-                aria-label="Switch to English"
-            >
-                ENG
-            </button>
-            <button
-                class="text-white hover:text-primary-green transition-colors"
-                aria-label="Switch to French"
-            >
-                FR
-            </button>
-        </div>
+        <button
+            class="transition-colors font-bold {currentLanguage === 'FR' ? 'text-text-black' : 'text-secondary'}"
+            onclick={() => switchLanguage('FR')}
+            aria-label="Switch to French"
+            aria-pressed={currentLanguage === 'FR'}
+        >
+            FR
+        </button>
     </div>
+</div>

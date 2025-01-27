@@ -4,7 +4,6 @@
     export let currentSlide: number;
     export let totalSlides: number;
     
-    // Accessibility labels
     $: previousLabel = `Go to previous slide (${currentSlide} of ${totalSlides})`;
     $: nextLabel = `Go to next slide (${currentSlide} of ${totalSlides})`;
   </script>

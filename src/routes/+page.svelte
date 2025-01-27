@@ -19,7 +19,7 @@
   function handleNext() {
     if (!isTransitioning) {
       isTransitioning = true;
-      currentIndex = (currentIndex + 1) % collections.length;
+      currentIndex = (currentIndex + 2) % collections.length;
       setTimeout(() => isTransitioning = false, 500);
     }
   }
@@ -38,6 +38,14 @@
       window.removeEventListener('keydown', handleKeydown);
     };
   });
+
+  function handleLanguageChange(newLanguage: 'ENG' | 'FR') {
+    console.log(`Language changed to ${newLanguage}`);
+  }
+
+  function handleMenuOpen() {
+    console.log('Menu clicked');
+  }
 </script>
 
 <main class="relative">
@@ -48,7 +56,11 @@
     totalSlides={collections.length}
   /> -->
 
-  <Header />
+  <Header 
+  initialLanguage="ENG"
+  onLanguageChange={handleLanguageChange}
+  onMenuClick={handleMenuOpen}
+/>
   
   <CollectionSlider
     slides={collections}
