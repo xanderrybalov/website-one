@@ -1,20 +1,29 @@
 <script lang="ts">
-  import { slide, fade } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { TRANSITION_DURATION, type CollectionSlide } from '$lib/index.js';
-  
-  export let slides: CollectionSlide[];
-  export let currentIndex: number;
-  
-  let mainImageLoaded = false;
-  let thumbnailsLoaded: boolean[] = [];
+
+  const { slides = [], currentIndex = 0 } = $props<{
+    slides?: CollectionSlide[];
+    currentIndex?: number;
+  }>();
+
+  let mainImageLoaded = $state(false);
+  let thumbnailsLoaded: boolean[] = $state(Array(slides.length).fill(false));
   let sliderId = crypto.randomUUID();
-  
-  $: if (browser && slides[currentIndex]) {
-    const nextIndex = (currentIndex + 2) % slides.length;
-    const preloadImage = document.createElement('img');
-    preloadImage.src = slides[nextIndex].mainImage;
-  }
+
+  $effect(() => {
+    if (browser && slides[currentIndex]) {
+      thumbnailsLoaded = Array(slides.length).fill(false);
+    }
+  });
+
+  $effect(() => {
+    if (browser && slides[currentIndex]) {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      slides[nextIndex]?.mainImage && (new Image().src = slides[nextIndex].mainImage);
+    }
+  });
 
   function handleMainImageLoad() {
     mainImageLoaded = true;
@@ -24,8 +33,7 @@
     thumbnailsLoaded[index] = true;
   }
 </script>
-
-<div class="grid grid-cols-2 min-h-screen max-h-screen" id={sliderId}>
+<div class="grid grid-cols-[3fr_2fr] min-h-screen max-h-screen" id={sliderId}>
   <!-- Left column - Main image -->
   <div class="relative h-screen overflow-hidden">
     {#key slides[currentIndex].id}
@@ -42,7 +50,7 @@
           class="w-full h-full object-cover transition-opacity duration-300"
           class:opacity-0={!mainImageLoaded}
           loading="lazy"
-          on:load={handleMainImageLoad}
+          onload={handleMainImageLoad}
         />
         
         <div 
@@ -59,35 +67,44 @@
     {/key}
   </div>
 
-  <!-- Right column - Thumbnails -->
-  <div class="bg-[#FAF9F7] h-screen relative">
-    <div class="absolute inset-0 flex flex-col justify-center px-12">
-      <div class="space-y-6">
-        {#each slides[currentIndex].thumbnails as thumbnail, idx}
-          <div class="relative w-full h-64">
-            <!-- Placeholder/Skeleton -->
-            <div 
-              class="absolute inset-0 bg-gray-200 animate-pulse"
-              class:opacity-0={thumbnailsLoaded[idx]}
-              class:hidden={thumbnailsLoaded[idx]}></div>
-            
-            <img
-              src={thumbnail}
-              alt={`Collection detail view ${idx + 1}`}
-              class="w-full h-full object-cover transition-opacity duration-300"
-              class:opacity-0={!thumbnailsLoaded[idx]}
-              loading="lazy"
-              on:load={() => handleThumbnailLoad(idx)}
-            />
-          </div>
-        {/each}
-      </div>
-
-      <button
-        class="absolute bottom-8 right-8 px-8 py-3 border border-black hover:bg-black hover:text-white transition-colors"
-        aria-label="Start shopping">
-        SHOP NOW
-      </button>
-    </div>
+<!-- Right column - Thumbnails -->
+<div class="bg-[#FAF9F7] h-screen relative grid grid-rows-[auto_1fr_auto] px-12 py-16">
+  <!-- Верхнее изображение -->
+  <div class="place-self-start self-start w-[320px] mt-[200px] ml-[220px]">
+    <!-- Placeholder/Skeleton -->
+    <div 
+      class="inset-0 bg-gray-200 animate-pulse"
+      class:opacity-0={mainImageLoaded}
+      class:hidden={mainImageLoaded}></div>
+    
+    <img
+      src={slides[currentIndex].mainImage}
+      alt={`Main collection view`}
+      class="w-full h-full object-cover transition-opacity duration-300"
+      class:opacity-0={!mainImageLoaded}
+      loading="lazy"
+      onload={handleMainImageLoad}
+    />
   </div>
+
+  <!-- Нижнее изображение -->
+  <div class="place-self-start self-end w-[260px] ml-[30px]">
+    <!-- Placeholder/Skeleton -->
+    <div 
+      class="inset-0 bg-gray-200 animate-pulse"
+      class:opacity-0={mainImageLoaded}
+      class:hidden={mainImageLoaded}></div>
+    
+    <img
+      src={slides[currentIndex].thumbnails[1]} 
+      alt={`Collection thumbnail`}
+      class="w-full h-full object-cover transition-opacity duration-300"
+      class:opacity-0={!mainImageLoaded}
+      loading="lazy"
+    />
+  </div>
+</div>
+
+
+
 </div>

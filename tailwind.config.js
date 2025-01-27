@@ -17,6 +17,11 @@ export default {
       spacing: {
         'header-padding': '3rem',
         'menu-text-padding': '1rem',
+        'thumbnail-gap': '1.5rem',
+      },
+      height: {
+        'thumbnail-upper': '60%',
+        'thumbnail-lower': '40%',
       },
     },
   },

@@ -1,4 +1,3 @@
-<!-- src/lib/components/Header.svelte -->
 <script lang="ts">
 let currentLanguage = $state('ENG');
 
@@ -33,7 +32,7 @@ function switchLanguage(lang: 'ENG' | 'FR') {
         <span class="pl-menu-text-padding">Menu</span>
     </button>
 
-    <div class="flex gap-4">
+    <div class="flex gap-14">
         <button
 class="transition-colors font-bold {currentLanguage === 'ENG' ? 'text-text-black' : 'text-secondary'}"
             onclick={() => switchLanguage('ENG')}
