@@ -19,15 +19,15 @@ export default {
         'footer-padding': '3rem',
         'menu-text-padding': '1rem',
         'thumbnail-gap': '1.5rem',
-        'button-padding-x': '6rem',
-        'button-padding-y': '1.25rem',
+        'button-padding-x': '6rem !important',
+        'button-padding-y': '1.25rem !important',
       },
       height: {
         'thumbnail-upper': '60%',
         'thumbnail-lower': '40%',
       },
       minWidth: {
-        button: '200px', 
+        button: '200px !important', 
       },
     },
   },

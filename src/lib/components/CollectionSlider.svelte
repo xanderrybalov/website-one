@@ -68,43 +68,74 @@
   </div>
 
 <!-- Right column - Thumbnails -->
-<div class="bg-[#FAF9F7] h-screen relative grid grid-rows-[auto_1fr_auto] px-12 py-16">
-  <!-- Верхнее изображение -->
-  <div class="place-self-start self-start w-[320px] mt-[160px] ml-[220px]">
-    <!-- Placeholder/Skeleton -->
-    <div 
-      class="inset-0 bg-gray-200 animate-pulse"
-      class:opacity-0={mainImageLoaded}
-      class:hidden={mainImageLoaded}></div>
+<div class="bg-[#FAF9F7] h-screen p-8 relative">
+  <div class="grid grid-cols-3 grid-rows-2 h-full gap-8">
+    <!-- Верхнее изображение -->
+    <div class="relative col-start-2 col-span-1 mt-[240px] translate-x-[100px] scale-[1.35] transform-gpu origin-center">
+      <!-- Placeholder/Skeleton -->
+      <div 
+        class="absolute inset-0 bg-gray-200 animate-pulse"
+        class:opacity-0={thumbnailsLoaded[currentIndex]}
+        class:hidden={thumbnailsLoaded[currentIndex]}
+      ></div>
+      
+      <img
+        src={slides[currentIndex].thumbnails?.[0] || slides[currentIndex].mainImage}
+        alt={`Thumbnail view 1`}
+        class="w-full h-auto object-cover"
+        class:opacity-0={!thumbnailsLoaded[currentIndex]}
+        loading="lazy"
+        onload={() => handleThumbnailLoad(currentIndex)}
+      />
+    </div>
     
-    <img
-      src={slides[currentIndex].mainImage}
-      alt={`Main collection view`}
-      class="w-full h-full object-cover transition-opacity duration-300"
-      class:opacity-0={!mainImageLoaded}
-      loading="lazy"
-      onload={handleMainImageLoad}
-    />
-  </div>
+    <div class="absolute place-self-end top-1/2 transform -translate-y-1/2 right-[-150px] rotate-90">
+      <div class="flex items-center">
+        <!-- Верхний текст -->
+        <span 
+          class="text-sm text-black origin-bottom whitespace-nowrap mr-10"
+          aria-label="Reference">
+          Ref. 6687/787
+        </span>
+        
+        <!-- Линия -->
+        <div class="h-[2px] w-[100px] bg-black"></div>
+        
+        <!-- Нижний текст -->
+        <span 
+          class="text-sm text-black origin-top whitespace-nowrap ml-10"
+          aria-label="Description">
+          White loose dress
+        </span>
+      </div>
+    </div>
 
-  <!-- Нижнее изображение -->
-  <div class="place-self-start self-end w-[260px] mb-[70px] ml-[30px]">
-    <!-- Placeholder/Skeleton -->
-    <div 
-      class="inset-0 bg-gray-200 animate-pulse"
-      class:opacity-0={mainImageLoaded}
-      class:hidden={mainImageLoaded}></div>
-    
-    <img
-      src={slides[currentIndex].thumbnails[1]} 
-      alt={`Collection thumbnail`}
-      class="w-full h-full object-cover transition-opacity duration-300"
-      class:opacity-0={!mainImageLoaded}
-      loading="lazy"
-    />
+    <!-- Нижнее изображение -->
+    <div class="relative col-start-1 col-span-1 row-start-2 translate-x-[20px] self-end scale-[1.1] transform-gpu origin-bottom">
+      <!-- Placeholder/Skeleton -->
+      <div 
+        class="absolute inset-0 bg-gray-200 animate-pulse"
+        class:opacity-0={thumbnailsLoaded[currentIndex]}
+        class:hidden={thumbnailsLoaded[currentIndex]}
+      ></div>
+      
+      <img
+        src={slides[currentIndex].thumbnails?.[1] || slides[currentIndex].mainImage}
+        alt={`Thumbnail view 2`}
+        class="w-full h-auto object-cover transition-opacity duration-300"
+        class:opacity-0={!thumbnailsLoaded[currentIndex]}
+        loading="lazy"
+        onload={() => handleThumbnailLoad(currentIndex)}
+      />
+    </div>
+  
+
   </div>
+    <!-- Button SHOP NOW -->
+    <button
+    class="absolute bottom-8 right-10 font-bold px-24 py-5 min-w-[200px] border border-black text-black hover:bg-black hover:text-white transition-colors z-10"
+    aria-label="Start shopping">
+    SHOP NOW
+  </button>
 </div>
-
-
-
 </div>
