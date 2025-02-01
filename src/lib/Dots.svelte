@@ -6,11 +6,10 @@
     export let setSlide: (index: number) => void;
   </script>
   
-  <!-- Контейнер с точками (прижат к правому краю) -->
-  <div class="fixed bottom-0 left-0 w-[70rem] text-white flex justify-end items-center p-primary-padding space-x-[5.3125rem]" role="tablist">
+  <div class="flex space-x-[5.1rem]">
     {#each slides, index}
       <button
-        class="w-1.5 h-1.5 rounded-full transition-colors duration-300 focus:outline-none"
+        class="w-[0.5rem] h-[0.5rem] rounded-full transition-colors duration-300 focus:outline-none"
         class:bg-[#e3ddd6]={currentIndex === index}
         class:bg-[#6b6d73]={currentIndex !== index}
         role="tab"

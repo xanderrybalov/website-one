@@ -76,8 +76,10 @@
     currentSlide={currentIndex} 
     totalSlides={slides.length} />
 
-    <Social />
-    <Dots {currentIndex} {slides} setSlide={(index) => currentIndex = index} />
+    <div class="fixed bottom-[1.9rem] left-[1.2rem] right-[5rem] w-[59.3%] text-white flex justify-between items-center p-primary-padding" role="contentinfo">
+      <Social />
+      <Dots {currentIndex} {slides} setSlide={(index) => currentIndex = index} />
+    </div>
 </div>
 
 <!-- Правая колонка -->
