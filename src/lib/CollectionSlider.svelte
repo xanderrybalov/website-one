@@ -83,7 +83,7 @@
 <div class="bg-primary h-screen p-8 relative flex flex-col items-end">
   
   <!-- Верхнее изображение (большая миниатюра) -->
-  <div class="absolute top-[28%] right-[20%] scale-[1] transform-gpu w-[250px] h-[340px] overflow-hidden">
+  <div class="absolute top-[25%] right-[20%] scale-[1] transform-gpu w-[250px] h-[340px] overflow-hidden">
     <!-- Placeholder/Skeleton -->
     <div 
       class="absolute inset-0 bg-gray-200 animate-pulse"
@@ -102,12 +102,12 @@
   </div>
 
 <!-- Текстовый блок с адаптивными позициями -->
-<div class="absolute top-1/2 right-[-90px] md:right-[-90px] sm:right-4 flex items-center transform -translate-y-1/2 rotate-90">
+<div class="absolute top-1/2 right-[-120px] md:right-[-120px] sm:right-4 flex items-center rotate-90 w-[22rem]">
   <!-- Верхний текст -->
   <span 
     class="text-sm md:text-xs sm:text-[10px] text-black origin-bottom whitespace-nowrap mr-10 sm:mr-5"
     aria-label="Reference">
-    Ref. 6687/787
+    Ref. {slides[currentIndex].ref}
   </span>
   
   <!-- Линия -->
@@ -117,7 +117,7 @@
   <span 
     class="text-sm md:text-xs sm:text-[10px] text-black origin-top whitespace-nowrap ml-10 sm:ml-5"
     aria-label="Description">
-    White loose dress
+    {slides[currentIndex].description}
   </span>
 </div>
 

@@ -6,6 +6,7 @@ export interface CollectionSlide {
   mainImage: string;
   thumbnails: string[];
   ref: string;
+  description: string;
 }
 
 export interface NavigationState {
@@ -21,7 +22,8 @@ export const collections: CollectionSlide[] = [
     year: '2020',
     mainImage: '/two.avif',
     thumbnails: ['/three.avif', '/one.avif'],
-    ref: '607707',
+    ref: '7607/707',
+    description: 'Amazing developer',
   },
   {
     id: '2',
@@ -30,7 +32,8 @@ export const collections: CollectionSlide[] = [
     year: '2020',
     mainImage: '/four.jpg',
     thumbnails: ['/five.jpg', '/six.jpg'],
-    ref: '607708',
+    ref: '7607/708',
+    description: 'Black loose dress',
   },
   {
     id: '3',
@@ -39,6 +42,7 @@ export const collections: CollectionSlide[] = [
     year: '2020',
     mainImage: '/nine.jpg',
     thumbnails: ['/seven.jpg', '/eight.jpg'],
-    ref: '607708',
+    ref: '7607/709',
+    description: 'White loose dress',
   },
 ];
