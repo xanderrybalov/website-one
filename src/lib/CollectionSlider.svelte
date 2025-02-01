@@ -2,6 +2,7 @@
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { Dots, Navigation, Social, type CollectionSlide } from '$lib/index.js';
+  import { cubicOut } from 'svelte/easing';
 
   const { slides = [] } = $props<{
     slides?: CollectionSlide[];
@@ -50,8 +51,8 @@
   {#key slides[currentIndex].id}
     <div 
       class="relative h-full"
-      in:fly={{ x: 100, duration: 300, opacity: 1 }} 
-      out:fly={{ x: -100, duration: 300, opacity: 0 }}
+      in:fly={{ x: 60, duration: 600, opacity: 1, easing: cubicOut }} 
+      out:fly={{ x: -60, duration: 600, opacity: 0, easing: cubicOut }}
     >
       <!-- Placeholder -->
       <div 
@@ -93,14 +94,18 @@
       class:hidden={thumbnailsLoaded[currentIndex]}
     ></div>
   
+    {#key slides[currentIndex].id}
     <img
       src={slides[currentIndex].thumbnails?.[0] || slides[currentIndex].mainImage}
       alt="Thumbnail view 1"
-      class="w-full h-full object-cover transition-opacity duration-300"
+      class="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
       class:opacity-0={!thumbnailsLoaded[currentIndex]}
       loading="lazy"
       onload={() => handleThumbnailLoad(currentIndex)}
+      in:fly={{ x: 60, duration: 600, opacity: 1, easing: cubicOut }} 
+      out:fly={{ x: -60, duration: 600, opacity: 0, easing: cubicOut }}
     />
+  {/key}
   </div>
 
   <!-- Текстовый блок с линией -->
@@ -126,14 +131,18 @@
         class:hidden={thumbnailsLoaded[currentIndex]}
       ></div>
 
+      {#key slides[currentIndex].id}
       <img
         src={slides[currentIndex].thumbnails?.[1] || slides[currentIndex].mainImage}
         alt="Thumbnail view 2"
-        class="w-full h-full object-cover transition-opacity duration-300 relative"
+        class="w-full h-full object-cover transition-opacity duration-300"
         class:opacity-0={!thumbnailsLoaded[currentIndex]}
         loading="lazy"
         onload={() => handleThumbnailLoad(currentIndex)}
+        in:fly={{ x: 60, duration: 600, opacity: 1, easing: cubicOut }} 
+        out:fly={{ x: -60, duration: 600, opacity: 0, easing: cubicOut }}
       />
+    {/key}
     </div>
   
     <!-- Кнопка SHOP NOW -->
