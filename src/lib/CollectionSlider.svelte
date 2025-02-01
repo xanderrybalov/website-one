@@ -83,12 +83,12 @@
 </div>
 
 <!-- Правая колонка -->
-<div class="bg-primary min-h-[900px] flex flex-col justify-between items-end overflow-hidden">
+<div class="bg-primary min-h-[900px] flex flex-col justify-start items-end overflow-hidden">
   
-  <div class="min-w-[245px] min-h-[330px] w-[245px] h-[330px] overflow-hidden mt-[13rem] mr-[6rem] self-end relative">
+  <div class="min-w-[245px] min-h-[330px] w-[245px] h-[330px] overflow-hidden mt-[15rem] mr-[8.5rem] self-end">
     <!-- Placeholder/Skeleton -->
     <div 
-      class="absolute inset-0 bg-gray-200 animate-pulse"
+      class="inset-0 bg-gray-200 animate-pulse"
       class:opacity-0={thumbnailsLoaded[currentIndex]}
       class:hidden={thumbnailsLoaded[currentIndex]}
     ></div>
@@ -96,7 +96,7 @@
     <img
       src={slides[currentIndex].thumbnails?.[0] || slides[currentIndex].mainImage}
       alt="Thumbnail view 1"
-      class="w-full h-full object-cover transition-opacity duration-300 relative"
+      class="w-full h-full object-cover transition-opacity duration-300"
       class:opacity-0={!thumbnailsLoaded[currentIndex]}
       loading="lazy"
       onload={() => handleThumbnailLoad(currentIndex)}
@@ -114,14 +114,14 @@
     </span>
   </div>
 
-
-  <div class="flex w-[85%] justify-end items-end mb-[4rem] mr-[4rem] gap-[3rem]">
+    <!-- Нижнее изображение и кнопка-->
+  <div class="flex w-[85%] justify-end items-end mt-[2rem] mr-[4rem] gap-[3rem]">
 
     <!-- Нижнее изображение -->
     <div class="min-w-[205px] min-h-[275px] w-[205px] h-[275px] overflow-hidden self-end flex-none">
       <!-- Placeholder/Skeleton -->
       <div 
-        class="absolute inset-0 bg-gray-200 animate-pulse"
+        class="inset-0 bg-gray-200 animate-pulse"
         class:opacity-0={thumbnailsLoaded[currentIndex]}
         class:hidden={thumbnailsLoaded[currentIndex]}
       ></div>
