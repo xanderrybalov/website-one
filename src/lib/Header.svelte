@@ -32,9 +32,9 @@ function switchLanguage(lang: 'ENG' | 'FR') {
         <span class="pl-menu-text-padding">Menu</span>
     </button>
 
-    <div class="flex gap-14">
+    <div class="flex gap-10 ">
         <button
-class="transition-colors font-bold {currentLanguage === 'ENG' ? 'text-text-black' : 'text-secondary'}"
+class="transition-colors font-bold text-lg md:text-sm {currentLanguage === 'ENG' ? 'text-text-black' : 'text-secondary'}"
             onclick={() => switchLanguage('ENG')}
             aria-label="Switch to English"
             aria-pressed={currentLanguage === 'ENG'}
@@ -42,7 +42,7 @@ class="transition-colors font-bold {currentLanguage === 'ENG' ? 'text-text-black
             ENG
         </button>
         <button
-            class="transition-colors font-bold {currentLanguage === 'FR' ? 'text-text-black' : 'text-secondary'}"
+            class="transition-colors font-bold text-lg md:text-sm {currentLanguage === 'FR' ? 'text-text-black' : 'text-secondary'}"
             onclick={() => switchLanguage('FR')}
             aria-label="Switch to French"
             aria-pressed={currentLanguage === 'FR'}
