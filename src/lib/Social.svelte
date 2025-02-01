@@ -1,5 +1,5 @@
 <div
-    class="fixed bottom-0 left-0 w-full text-white flex justify-between items-center p-footer-padding"
+    class="fixed bottom-0 left-0 w-64 text-white flex justify-between items-center p-social-padding"
     role="contentinfo"
     >
     <div class="flex gap-8">

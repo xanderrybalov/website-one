@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
-  import { Navigation, type CollectionSlide } from '$lib/index.js';
+  import { Navigation, Social, type CollectionSlide } from '$lib/index.js';
 
   const { slides = [] } = $props<{
     slides?: CollectionSlide[];
@@ -75,6 +75,8 @@
     onNext={nextSlide} 
     currentSlide={currentIndex} 
     totalSlides={slides.length} />
+
+    <Social />
 </div>
 
 <!-- Правая колонка -->
@@ -139,7 +141,6 @@
   </div>
 
 
-  <!-- Кнопка SHOP NOW (теперь на одном уровне с нижней картинкой) -->
   <button
     class="absolute bottom-[2rem] right-14 font-bold px-14 py-4 min-w-[140px] text-xs border border-black text-black hover:bg-black hover:text-white transition-colors z-10"
     aria-label="Start shopping">

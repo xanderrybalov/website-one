@@ -2,7 +2,7 @@
 export { default as CollectionSlider } from './CollectionSlider.svelte';
 export { default as Navigation } from './Navigation.svelte';
 export { default as Header } from './Header.svelte';
-export { default as Footer } from './Footer.svelte';
+export { default as Social } from './Social.svelte';
 
 // Types
 export type { CollectionSlide, NavigationState } from './types/collection.ts';

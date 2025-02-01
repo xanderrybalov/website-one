@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CollectionSlider, Footer, Header} from '$lib/index.js';
+  import { CollectionSlider, Header} from '$lib/index.js';
   import { collections } from '$lib/types/collection.js';
 
   let currentIndex = 0;
@@ -25,7 +25,4 @@
   <main class="flex-grow">
     <CollectionSlider slides={collections} {currentIndex} />
   </main>
-
-  <!-- Footer -->
-  <Footer />
 </div>
