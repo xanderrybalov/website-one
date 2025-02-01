@@ -103,20 +103,20 @@
   </div>
 
 <!-- Текстовый блок с адаптивными позициями -->
-<div class="absolute top-1/2 right-[-120px] md:right-[-120px] sm:right-4 flex items-center rotate-90 w-[22rem]">
+<div class="absolute top-[30.1rem] right-[-8.7rem] flex items-center rotate-90 gap-[3rem]">
   <!-- Верхний текст -->
   <span 
-    class="text-sm md:text-xs sm:text-[10px] text-black origin-bottom whitespace-nowrap mr-10 sm:mr-5"
+    class="text-sm text-black origin-bottom whitespace-nowrap"
     aria-label="Reference">
     Ref. {slides[currentIndex].ref}
   </span>
   
   <!-- Линия -->
-  <div class="h-[2px] w-[100px] md:w-[80px] sm:w-[60px] bg-black"></div>
+  <div class="h-[2px] w-[110px] bg-black"></div>
   
   <!-- Нижний текст -->
   <span 
-    class="text-sm md:text-xs sm:text-[10px] text-black origin-top whitespace-nowrap ml-10 sm:ml-5"
+    class="text-sm text-black origin-top whitespace-nowrap"
     aria-label="Description">
     {slides[currentIndex].description}
   </span>
