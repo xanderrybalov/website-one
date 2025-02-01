@@ -143,7 +143,7 @@
 
 
   <button
-    class="absolute bottom-[2rem] right-14 font-bold px-14 py-4 min-w-[140px] text-xs border border-black text-black hover:bg-black hover:text-white transition-colors z-10"
+    class="absolute bottom-[4rem] right-[4rem] font-bold px-[4.8rem] py-[1.4rem] min-w-[140px] text-xs border border-black text-black hover:bg-black hover:text-white transition-colors z-10"
     aria-label="Start shopping">
     SHOP NOW
   </button>
