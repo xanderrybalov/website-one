@@ -85,7 +85,6 @@
 <!-- Правая колонка -->
 <div class="bg-primary min-h-[800px] max-h-[100vh] p-8 flex flex-col justify-between items-end overflow-hidden">
   
-  <!-- Верхнее изображение -->
   <div class="min-w-[245px] min-h-[330px] w-[245px] h-[330px] overflow-hidden mt-[13rem] mr-[6rem] self-end relative">
     <!-- Placeholder/Skeleton -->
     <div 
@@ -93,11 +92,11 @@
       class:opacity-0={thumbnailsLoaded[currentIndex]}
       class:hidden={thumbnailsLoaded[currentIndex]}
     ></div>
-    
+  
     <img
       src={slides[currentIndex].thumbnails?.[0] || slides[currentIndex].mainImage}
       alt="Thumbnail view 1"
-      class="w-[245px] h-[330px] object-contain transition-opacity duration-300 relative"
+      class="w-full h-full object-cover transition-opacity duration-300 relative"
       class:opacity-0={!thumbnailsLoaded[currentIndex]}
       loading="lazy"
       onload={() => handleThumbnailLoad(currentIndex)}
@@ -105,11 +104,11 @@
   </div>
 
   <!-- Текстовый блок с линией -->
-  <div class="flex items-center rotate-90 gap-[3rem] mt-[-5rem] mr-[-11.1rem] self-end">
+  <div class="flex items-center rotate-90 gap-[2.9rem] mt-[-11.5rem] mr-[-11.1rem] self-end">
     <span class="text-sm text-black origin-bottom whitespace-nowrap" aria-label="Reference">
       Ref. {slides[currentIndex].ref}
     </span>
-    <div class="h-[2px] w-[7rem] bg-black"></div>
+    <div class="h-[2px] w-[7.5rem] bg-black"></div>
     <span class="text-sm text-black origin-top whitespace-nowrap" aria-label="Description">
       {slides[currentIndex].description}
     </span>
@@ -117,24 +116,24 @@
 
   <div class="flex w-[85%] justify-between items-end mb-[2rem] mr-[3rem] gap-[3rem]">
 
-    <!-- Нижнее изображение -->
-    <div class="min-w-[205px] min-h-[275px] w-[205px] h-[275px] overflow-hidden self-end flex-none">
-      <!-- Placeholder/Skeleton -->
-      <div 
-        class="absolute inset-0 bg-gray-200 animate-pulse"
-        class:opacity-0={thumbnailsLoaded[currentIndex]}
-        class:hidden={thumbnailsLoaded[currentIndex]}
-      ></div>
-      
-      <img
-        src={slides[currentIndex].thumbnails?.[1] || slides[currentIndex].mainImage}
-        alt="Thumbnail view 2"
-        class="w-[205px] h-[275px] object-contain transition-opacity duration-300 relative"
-        class:opacity-0={!thumbnailsLoaded[currentIndex]}
-        loading="lazy"
-        onload={() => handleThumbnailLoad(currentIndex)}
-      />
-    </div>
+<!-- Нижнее изображение -->
+<div class="min-w-[205px] min-h-[275px] w-[205px] h-[275px] overflow-hidden self-end flex-none">
+  <!-- Placeholder/Skeleton -->
+  <div 
+    class="absolute inset-0 bg-gray-200 animate-pulse"
+    class:opacity-0={thumbnailsLoaded[currentIndex]}
+    class:hidden={thumbnailsLoaded[currentIndex]}
+  ></div>
+
+  <img
+    src={slides[currentIndex].thumbnails?.[1] || slides[currentIndex].mainImage}
+    alt="Thumbnail view 2"
+    class="w-full h-full object-cover transition-opacity duration-300 relative"
+    class:opacity-0={!thumbnailsLoaded[currentIndex]}
+    loading="lazy"
+    onload={() => handleThumbnailLoad(currentIndex)}
+  />
+</div>
   
     <!-- Кнопка SHOP NOW -->
     <button
