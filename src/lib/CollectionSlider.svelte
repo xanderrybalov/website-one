@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
-  import { Navigation, Social, type CollectionSlide } from '$lib/index.js';
+  import { Dots, Navigation, Social, type CollectionSlide } from '$lib/index.js';
 
   const { slides = [] } = $props<{
     slides?: CollectionSlide[];
@@ -44,7 +44,7 @@
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
   }
 </script>
-<div class="grid grid-cols-[4fr_2fr] min-h-screen max-h-screen" id={sliderId}>
+<div class="grid grid-cols-[3fr_2fr] min-h-screen max-h-screen" id={sliderId}>
   <!-- Left column - Main image -->
 <div class="relative h-screen overflow-hidden bg-primary" id={sliderId}>
   {#key slides[currentIndex].id}
@@ -77,6 +77,7 @@
     totalSlides={slides.length} />
 
     <Social />
+    <Dots {currentIndex} {slides} setSlide={(index) => currentIndex = index} />
 </div>
 
 <!-- Правая колонка -->

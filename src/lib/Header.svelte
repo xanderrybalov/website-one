@@ -17,7 +17,7 @@ function switchLanguage(lang: 'ENG' | 'FR') {
 }
 </script>
 
-<div class="fixed top-0 left-0 w-full p-header-padding flex justify-between items-center z-10">
+<div class="fixed top-0 left-0 w-full p-primary-padding flex justify-between items-center z-10">
     <button
         class="text-text-white flex items-center gap-2"
         onclick={onMenuClick}
