@@ -24,5 +24,6 @@
   <!-- Main content -->
   <main class="flex-grow">
     <CollectionSlider slides={collections} {currentIndex} />
+    <div class="h-[100rem]"></div>
   </main>
 </div>
