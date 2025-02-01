@@ -1,8 +1,8 @@
 // Components
-export { default as CollectionSlider } from './components/CollectionSlider.svelte';
-export { default as Navigation } from './components/Navigation.svelte';
-export { default as Header } from './components/Header.svelte';
-export { default as Footer } from './components/Footer.svelte';
+export { default as CollectionSlider } from './CollectionSlider.svelte';
+export { default as Navigation } from './Navigation.svelte';
+export { default as Header } from './Header.svelte';
+export { default as Footer } from './Footer.svelte';
 
 // Types
 export type { CollectionSlide, NavigationState } from './types/collection.ts';

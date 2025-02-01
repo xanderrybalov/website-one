@@ -1,12 +1,13 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import { browser } from '$app/environment';
-  import { TRANSITION_DURATION, type CollectionSlide } from '$lib/index.js';
+  import { Navigation, TRANSITION_DURATION, type CollectionSlide } from '$lib/index.js';
 
-  const { slides = [], currentIndex = 0 } = $props<{
+  const { slides = [] } = $props<{
     slides?: CollectionSlide[];
     currentIndex?: number;
   }>();
+  let currentIndex = $state(0);
 
   let mainImageLoaded = $state(false);
   let thumbnailsLoaded: boolean[] = $state(Array(slides.length).fill(false));
@@ -38,12 +39,6 @@
   <div class="relative h-screen overflow-hidden">
     {#key slides[currentIndex].id}
       <div class="relative h-full">
-        <!-- Placeholder/Skeleton -->
-        <div 
-          class="absolute inset-0 bg-gray-200 animate-pulse"
-          class:opacity-0={mainImageLoaded}
-          class:hidden={mainImageLoaded}></div>
-        
         <img
           src={slides[currentIndex].mainImage}
           alt={`${slides[currentIndex].season} ${slides[currentIndex].year} collection main view`}
@@ -52,19 +47,15 @@
           loading="lazy"
           onload={handleMainImageLoad}
         />
-        
-        <!-- <div 
-          class="absolute bottom-8 left-8 text-white"
-          in:fade={{ duration: TRANSITION_DURATION, delay: TRANSITION_DURATION / 2 }}>
-          <h1 
-            class="text-header-title font-header-light"
-            aria-label={`${slides[currentIndex].season} ${slides[currentIndex].year} collection`}>
-            {slides[currentIndex].season}<br />
-            {slides[currentIndex].year}
-          </h1>
-        </div> -->
       </div>
     {/key}
+    
+    <!-- Вставляем `Navigation` внутрь блока -->
+    <Navigation 
+      onPrevious={() => currentIndex = (currentIndex - 1 + slides.length) % slides.length}
+      onNext={() => currentIndex = (currentIndex + 1) % slides.length}
+      {currentIndex}
+      totalSlides={slides.length} />
   </div>
 
 <!-- Right column - Thumbnails -->
