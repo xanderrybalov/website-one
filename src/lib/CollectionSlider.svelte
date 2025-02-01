@@ -83,7 +83,7 @@
 <div class="bg-primary h-screen p-8 relative flex flex-col items-end">
   
   <!-- Верхнее изображение (большая миниатюра) -->
-  <div class="absolute top-[28%] right-[20%] scale-[1] transform-gpu w-[250px] h-[340px]">
+  <div class="absolute top-[28%] right-[20%] scale-[1] transform-gpu w-[250px] h-[340px] overflow-hidden">
     <!-- Placeholder/Skeleton -->
     <div 
       class="absolute inset-0 bg-gray-200 animate-pulse"
@@ -94,7 +94,7 @@
     <img
       src={slides[currentIndex].thumbnails?.[0] || slides[currentIndex].mainImage}
       alt="Thumbnail view 1"
-      class="w-full h-full object-contain transition-opacity duration-300"
+      class="w-full h-full object-cover transition-opacity duration-300"
       class:opacity-0={!thumbnailsLoaded[currentIndex]}
       loading="lazy"
       onload={() => handleThumbnailLoad(currentIndex)}
@@ -122,7 +122,7 @@
 </div>
 
   <!-- Нижнее изображение (чуть выше, шире и выровнено по кнопке) -->
-  <div class="absolute bottom-[2rem] left-[12%] scale-[1] transform-gpu w-[210px] h-[280px]">
+  <div class="absolute bottom-[2rem] left-[12%] scale-[1] transform-gpu w-[210px] h-[280px] overflow-hidden">
     <!-- Placeholder/Skeleton -->
     <div 
       class="absolute inset-0 bg-gray-200 animate-pulse"
@@ -133,7 +133,7 @@
     <img
       src={slides[currentIndex].thumbnails?.[1] || slides[currentIndex].mainImage}
       alt="Thumbnail view 2"
-      class="w-full h-full object-contain transition-opacity duration-300"
+      class="w-full h-full object-cover transition-opacity duration-300"
       class:opacity-0={!thumbnailsLoaded[currentIndex]}
       loading="lazy"
       onload={() => handleThumbnailLoad(currentIndex)}

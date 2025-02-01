@@ -16,7 +16,7 @@ export default {
       },
       spacing: {
         'header-padding': '3rem',
-        'social-padding': '2rem 3rem',
+        'social-padding': '2rem 3.5rem',
         'menu-text-padding': '1rem',
         'thumbnail-gap': '1.5rem',
         'button-padding-x': '6rem !important',
