@@ -84,7 +84,7 @@
 <div class="bg-primary h-screen p-8 relative flex flex-col items-end">
   
   <!-- Верхнее изображение (большая миниатюра) -->
-  <div class="absolute top-[25%] right-[20%] scale-[1] transform-gpu w-[250px] h-[340px] overflow-hidden">
+  <div class="absolute top-[15rem] right-[8.5rem] transform-gpu w-[245px] h-[330px] overflow-hidden">
     <!-- Placeholder/Skeleton -->
     <div 
       class="absolute inset-0 bg-gray-200 animate-pulse"
@@ -123,7 +123,7 @@
 </div>
 
   <!-- Нижнее изображение (чуть выше, шире и выровнено по кнопке) -->
-  <div class="absolute bottom-[2rem] left-[12%] scale-[1] transform-gpu w-[210px] h-[280px] overflow-hidden">
+  <div class="absolute bottom-[4rem] left-[11%] transform-gpu w-[205px] h-[275px] overflow-hidden">
     <!-- Placeholder/Skeleton -->
     <div 
       class="absolute inset-0 bg-gray-200 animate-pulse"
