@@ -22,8 +22,8 @@ export const collections: CollectionSlide[] = [
     year: '2020',
     mainImage: '/two.avif',
     thumbnails: ['/three.avif', '/one.avif'],
-    ref: '7607/707',
-    description: 'Amazing developer',
+    ref: '7607/700',
+    description: 'Black loose dress',
   },
   {
     id: '2',
@@ -43,6 +43,6 @@ export const collections: CollectionSlide[] = [
     mainImage: '/nine.jpg',
     thumbnails: ['/seven.jpg', '/eight.jpg'],
     ref: '7607/709',
-    description: 'White loose dress',
+    description: 'Black loose dress',
   },
 ];

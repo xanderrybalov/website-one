@@ -46,7 +46,7 @@
 </script>
 <div class="grid grid-cols-[3fr_2fr] min-h-screen max-h-screen" id={sliderId}>
   <!-- Left column - Main image -->
-<div class="relative h-screen overflow-hidden bg-primary" id={sliderId}>
+<div class="relative h-screen min-h-[900px] max-h-[100vh] overflow-hidden bg-primary" id={sliderId}>
   {#key slides[currentIndex].id}
     <div 
       class="relative h-full"
@@ -83,7 +83,7 @@
 </div>
 
 <!-- Правая колонка -->
-<div class="bg-primary min-h-[800px] max-h-[100vh] p-8 flex flex-col justify-between items-end overflow-hidden">
+<div class="bg-primary min-h-[900px] max-h-[100vh] p-8 flex flex-col justify-between items-end overflow-hidden">
   
   <div class="min-w-[245px] min-h-[330px] w-[245px] h-[330px] overflow-hidden mt-[13rem] mr-[6rem] self-end relative">
     <!-- Placeholder/Skeleton -->
@@ -103,16 +103,17 @@
     />
   </div>
 
-  <!-- Текстовый блок с линией -->
-  <div class="flex items-center rotate-90 gap-[2.9rem] mt-[-11.5rem] mr-[-11.1rem] self-end">
-    <span class="text-sm text-black origin-bottom whitespace-nowrap" aria-label="Reference">
-      Ref. {slides[currentIndex].ref}
-    </span>
-    <div class="h-[2px] w-[7.5rem] bg-black"></div>
-    <span class="text-sm text-black origin-top whitespace-nowrap" aria-label="Description">
-      {slides[currentIndex].description}
-    </span>
-  </div>
+<!-- Текстовый блок с линией -->
+<div class="absolute top-[30rem] right-[-8.7rem] flex items-center rotate-90 gap-[3rem]">
+  <span class="text-sm text-black origin-bottom whitespace-nowrap" aria-label="Reference">
+    Ref. {slides[currentIndex].ref}
+  </span>
+  <div class="h-[2px] w-[7.5rem] bg-black"></div>
+  <span class="text-sm text-black origin-top whitespace-nowrap" aria-label="Description">
+    {slides[currentIndex].description}
+  </span>
+</div>
+
 
   <div class="flex w-[85%] justify-between items-end mb-[2rem] mr-[3rem] gap-[3rem]">
 
