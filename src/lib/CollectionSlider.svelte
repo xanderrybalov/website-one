@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
+  import { fade, fly } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { Navigation, TRANSITION_DURATION, type CollectionSlide } from '$lib/index.js';
 
@@ -33,33 +33,53 @@
   function handleThumbnailLoad(index: number) {
     thumbnailsLoaded[index] = true;
   }
+
+  function nextSlide() {
+    mainImageLoaded = false;
+    currentIndex = (currentIndex + 1) % slides.length;
+  }
+
+  function prevSlide() {
+    mainImageLoaded = false;
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  }
 </script>
 <div class="grid grid-cols-[3fr_2fr] min-h-screen max-h-screen" id={sliderId}>
   <!-- Left column - Main image -->
-  <div class="relative h-screen overflow-hidden">
-    {#key slides[currentIndex].id}
-      <div class="relative h-full">
-        <img
-          src={slides[currentIndex].mainImage}
-          alt={`${slides[currentIndex].season} ${slides[currentIndex].year} collection main view`}
-          class="w-full h-full object-cover transition-opacity duration-300"
-          class:opacity-0={!mainImageLoaded}
-          loading="lazy"
-          onload={handleMainImageLoad}
-        />
-      </div>
-    {/key}
-    
-    <!-- Вставляем `Navigation` внутрь блока -->
-    <Navigation 
-      onPrevious={() => currentIndex = (currentIndex - 1 + slides.length) % slides.length}
-      onNext={() => currentIndex = (currentIndex + 1) % slides.length}
-      {currentIndex}
-      totalSlides={slides.length} />
-  </div>
+<!-- Главный контейнер -->
+<div class="relative h-screen overflow-hidden bg-primary" id={sliderId}>
+  {#key slides[currentIndex].id}
+    <div 
+      class="relative h-full"
+      in:fly={{ x: 100, duration: 300, opacity: 1 }} 
+      out:fly={{ x: -100, duration: 300, opacity: 0 }}
+    >
+      <!-- Placeholder -->
+      <div 
+        class="absolute inset-0 bg-gray-200 animate-pulse"
+        class:opacity-0={mainImageLoaded}
+        class:hidden={mainImageLoaded}></div>
+
+      <img
+        src={slides[currentIndex].mainImage}
+        alt={`${slides[currentIndex].season} ${slides[currentIndex].year} collection main view`}
+        class="w-full h-full object-cover transition-opacity duration-300 ease-in-out transform-gpu"
+        class:opacity-0={!mainImageLoaded}
+        loading="lazy"
+        onload={handleMainImageLoad}
+      />
+    </div>
+  {/key}
+
+  <Navigation 
+    onPrevious={prevSlide} 
+    onNext={nextSlide} 
+    currentSlide={currentIndex} 
+    totalSlides={slides.length} />
+</div>
 
 <!-- Right column - Thumbnails -->
-<div class="bg-[#FAF9F7] h-screen p-8 relative">
+<div class="bg-primary h-screen p-8 relative">
   <div class="grid grid-cols-3 grid-rows-2 h-full gap-8">
     <!-- Верхнее изображение -->
     <div class="relative col-start-2 col-span-1 mt-[240px] translate-x-[100px] scale-[1.35] transform-gpu origin-center">
