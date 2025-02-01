@@ -15,8 +15,7 @@ export default {
         'header-bold': '700',
       },
       spacing: {
-        'primary-padding': '3rem 3.5rem',
-        'primary-padding': '2rem 3.5rem',
+        'primary-padding': '2rem 4rem 2rem 3.5rem',
         'menu-text-padding': '1rem',
         'thumbnail-gap': '1.5rem',
         'button-padding-x': '6rem !important',

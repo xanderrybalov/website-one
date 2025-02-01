@@ -26,15 +26,15 @@ function switchLanguage(lang: 'ENG' | 'FR') {
         <img 
             src="/menu.svg" 
             alt=""
-            class="w-6 h-6 filter invert"
+            class="w-6 h-14 filter invert"
             aria-hidden="true"
         />
         <span class="pl-menu-text-padding">Menu</span>
     </button>
 
-    <div class="flex gap-10 ">
+    <div class="flex gap-[2.8rem]">
         <button
-class="transition-colors font-bold text-lg md:text-sm {currentLanguage === 'ENG' ? 'text-text-black' : 'text-secondary'}"
+            class="transition-colors font-bold text-lg md:text-sm {currentLanguage === 'ENG' ? 'text-text-black' : 'text-secondary'}"
             onclick={() => switchLanguage('ENG')}
             aria-label="Switch to English"
             aria-pressed={currentLanguage === 'ENG'}
