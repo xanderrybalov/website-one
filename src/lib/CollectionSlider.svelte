@@ -86,7 +86,7 @@
 
   <TextOverlay season="Summer" title="2020" />
 
-  <div class="absolute top-[52rem] left-0 w-full flex justify-between text-white items-center p-secondary-padding" role="contentinfo">
+  <div class="absolute top-[51rem] left-0 w-full flex justify-between text-white items-center p-secondary-padding" role="contentinfo">
     <Social />
     <Dots {currentIndex} {slides} setSlide={(index) => currentIndex = index} />
   </div>
@@ -96,7 +96,7 @@
 <!-- Правая колонка -->
 <div class="bg-primary min-h-[900px] flex flex-col justify-start items-end overflow-hidden">
   
-  <div class="min-w-[245px] min-h-[330px] w-[245px] h-[330px] overflow-hidden mt-[15rem] mr-[8.5rem] self-end">
+  <div class="min-w-[245px] min-h-[330px] w-[245px] h-[330px] overflow-hidden mt-[14.5rem] mr-[8.5rem] self-end">
     <!-- Placeholder/Skeleton -->
     <div 
       class="inset-0 bg-gray-200 animate-pulse"
@@ -119,18 +119,18 @@
   </div>
 
   <!-- Текстовый блок с линией -->
-  <div class="absolute top-[30rem] right-[-8.7rem] flex items-center rotate-90 gap-[3rem]">
+  <div class="mt-[-6rem] mr-[-8.5rem] flex items-center rotate-90 gap-[3rem]">
     <span class="text-sm text-black origin-bottom whitespace-nowrap" aria-label="Reference">
       Ref. {slides[currentIndex].ref}
     </span>
-    <div class="h-[2px] w-[7.5rem] bg-black"></div>
+    <div class="h-[2px] w-[7rem] bg-black"></div>
     <span class="text-sm text-black origin-top whitespace-nowrap" aria-label="Description">
       {slides[currentIndex].description}
     </span>
   </div>
 
     <!-- Нижнее изображение и кнопка-->
-  <div class="flex w-[85%] justify-end items-end mt-[2rem] mr-[4rem] gap-[3rem]">
+  <div class="flex w-[85%] justify-end items-end mt-[6.5rem] mr-[4rem] gap-[3rem]">
 
     <!-- Нижнее изображение -->
     <div class="min-w-[205px] min-h-[275px] w-[205px] h-[275px] overflow-hidden self-end flex-none">
