@@ -8,9 +8,6 @@
     console.log(`Language changed to ${newLanguage}`);
   }
 
-  function handleMenuOpen() {
-    console.log('Menu clicked');
-  }
 </script>
 
 <div class="flex flex-col min-h-screen">
@@ -18,7 +15,6 @@
   <Header 
     initialLanguage="ENG"
     onLanguageChange={handleLanguageChange}
-    onMenuClick={handleMenuOpen}
   />
 
   <!-- Main content -->
