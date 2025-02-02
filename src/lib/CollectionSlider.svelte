@@ -46,9 +46,10 @@
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
   }
 </script>
-<div class="grid grid-cols-[auto_600px] min-h-screen max-h-screen" id={sliderId}>
-  <!-- Left column - Main image -->
-<div class="relative h-screen min-h-[900px] overflow-hidden bg-primary" id={sliderId}>
+<div class="grid lg:grid-cols-[auto_600px] md:grid-cols-[auto] min-h-screen max-h-screen bg-primary" id={sliderId}>
+  
+  <!-- Левая колонка (скрывается на md) -->
+  <div class="relative h-screen lg:min-h-[900px]" id={sliderId}>
   {#key slides[currentIndex].id}
     <div 
       class="relative h-full"

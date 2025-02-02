@@ -26,12 +26,12 @@
   
     function openMenu() {
       isMenuOpen = true;
-      document.body.classList.add("overflow-hidden"); // 🔒 Блокируем скролл
+      document.body.classList.add("overflow-hidden");
     }
   
     function closeMenu() {
       isMenuOpen = false;
-      document.body.classList.remove("overflow-hidden"); // 🔓 Разблокируем скролл
+      document.body.classList.remove("overflow-hidden");
     }
   
     onMount(() => {
