@@ -1,8 +1,9 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
-  import { Dots, Navigation, Social, type CollectionSlide } from '$lib/index.js';
+  import { Dots, Navigation, Social, TextOverlay, type CollectionSlide } from '$lib/index.js';
   import { cubicOut } from 'svelte/easing';
+  import SlideInfo from './SlideInfo.svelte';
 
   const { slides = [] } = $props<{
     slides?: CollectionSlide[];
@@ -71,16 +72,25 @@
     </div>
   {/key}
 
+  <SlideInfo
+  season={slides[currentIndex].season}
+  title={slides[currentIndex].title}
+  year={slides[currentIndex].year}
+/>
+
   <Navigation 
     onPrevious={prevSlide} 
     onNext={nextSlide} 
     currentSlide={currentIndex} 
     totalSlides={slides.length} />
 
-    <div class="fixed bottom-[1.9rem] left-[1.2rem] right-[5rem] w-[59.3%] text-white flex justify-between items-center p-primary-padding" role="contentinfo">
-      <Social />
-      <Dots {currentIndex} {slides} setSlide={(index) => currentIndex = index} />
-    </div>
+  <TextOverlay season="Summer" title="2020" />
+
+  <div class="fixed bottom-[1.9rem] left-[1.2rem] right-[5rem] w-[59.3%] text-white flex justify-between items-center p-primary-padding" role="contentinfo">
+    <Social />
+    <Dots {currentIndex} {slides} setSlide={(index) => currentIndex = index} />
+  </div>
+
 </div>
 
 <!-- Правая колонка -->

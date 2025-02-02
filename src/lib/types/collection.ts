@@ -17,7 +17,7 @@ export interface NavigationState {
 export const collections: CollectionSlide[] = [
   {
     id: '1',
-    title: 'Summer Collection',
+    title: 'Collection',
     season: 'Summer',
     year: '2020',
     mainImage: '/two.avif',
@@ -27,7 +27,7 @@ export const collections: CollectionSlide[] = [
   },
   {
     id: '2',
-    title: 'Summer Collection',
+    title: 'Collection',
     season: 'Summer',
     year: '2020',
     mainImage: '/four.jpg',
@@ -37,7 +37,7 @@ export const collections: CollectionSlide[] = [
   },
   {
     id: '3',
-    title: 'Summer Collection',
+    title: 'Collection',
     season: 'Summer',
     year: '2020',
     mainImage: '/nine.jpg',
