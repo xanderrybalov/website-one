@@ -16,6 +16,7 @@ export default {
       },
       spacing: {
         'primary-padding': '2rem 4rem 2rem 3.5rem',
+        'secondary-padding': '2rem 3.5rem 2rem 4.5rem',
         'menu-text-padding': '1rem',
         'thumbnail-gap': '1.5rem',
         'button-padding-x': '6rem !important',

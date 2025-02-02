@@ -86,7 +86,7 @@
 
   <TextOverlay season="Summer" title="2020" />
 
-  <div class="absolute bottom-[1.9rem] w-[100%] justify-between text-white flex items-center p-primary-padding" role="contentinfo">
+  <div class="absolute bottom-[2rem] w-[100%] justify-between text-white flex items-center p-secondary-padding" role="contentinfo">
     <Social />
     <Dots {currentIndex} {slides} setSlide={(index) => currentIndex = index} />
   </div>
