@@ -6,7 +6,7 @@
     export let setSlide: (index: number) => void;
   </script>
   
-  <div class="flex space-x-[5.1rem]">
+  <div class="flex lg:gap-[2rem] xl:gap-[5rem] gap-[2rem]">
     {#each slides, index}
       <button
         class="w-[0.5rem] h-[0.5rem] rounded-full transition-colors duration-300 focus:outline-none"
